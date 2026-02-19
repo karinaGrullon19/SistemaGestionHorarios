@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SistemaGestionHorarios.Domain.ScheduleItem>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">📅 Horario Académico Semanal</h2>
+        <a asp-action="Create" class="btn btn-success shadow-sm">
+            <strong>+ Agregar Clase</strong>
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <table class="table table-hover table-striped mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="ps-4">Asignatura</th>
+                        <th>Profesor</th>
+                        <th>Día</th>
+                        <th>Horario</th>
+                        <th>Aula</th>
+                        <th>Grado</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="ps-4 fw-bold text-dark">@item.SubjectName</td>
+                            <td>@item.TeacherName</td>
+                            <td>
+                                <span class="badge rounded-pill bg-primary">@item.DayOfWeek</span>
+                            </td>
+                            <td>
+                                <span class="text-muted">@item.StartTime - @item.EndTime</span>
+                            </td>
+                            <td>@item.RoomNumber</td>
+                            <td>@item.GradeLevel</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">Editar</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Borrar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>

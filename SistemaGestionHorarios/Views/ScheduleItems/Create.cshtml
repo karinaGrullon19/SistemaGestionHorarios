@@ -1,0 +1,59 @@
+﻿@model SistemaGestionHorarios.Domain.ScheduleItem
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-header bg-dark text-white text-center">
+                    <h4 class="mb-0">Registrar Nuevo Bloque</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Nombre de la Materia</label>
+                            <input asp-for="SubjectName" class="form-control" placeholder="Ej: Programación" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Profesor</label>
+                            <input asp-for="TeacherName" class="form-control" placeholder="Nombre completo" />
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label class="form-label fw-bold">Día</label>
+                                <select asp-for="DayOfWeek" class="form-select">
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miércoles">Miércoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+                                </select>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label fw-bold">Grado</label>
+                                <input asp-for="GradeLevel" class="form-control" placeholder="Ej: 6to" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label class="form-label fw-bold">Inicio</label>
+                                <input asp-for="StartTime" type="time" class="form-control" />
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label fw-bold">Fin</label>
+                                <input asp-for="EndTime" type="time" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Aula</label>
+                            <input asp-for="RoomNumber" class="form-control" placeholder="Ej: Lab 1" />
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Guardar en Horario</button>
+                            <a asp-action="Index" class="btn btn-link text-muted">Cancelar y volver</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
